@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { ReactNode } from "react";
-import "./globals.css";
+import { Toaster } from "@/components/ui/sonner"
+import type { Metadata } from "next"
+import localFont from "next/font/local"
+import { ReactNode } from "react"
+import "./globals.css"
 
 const ibmPlexSans = localFont({
   src: [
@@ -10,24 +11,27 @@ const ibmPlexSans = localFont({
     { path: "./fonts/IBMPlexSans-SemiBold.ttf", weight: "600", style: "normal" },
     { path: "./fonts/IBMPlexSans-Bold.ttf", weight: "700", style: "normal" },
   ],
-});
+})
 
 const bebasNeue = localFont({
   src: [{ path: "./fonts/BebasNeue-Regular.ttf", weight: "400", style: "normal" }],
   variable: "--bebas-neue",
-});
+})
 
 export const metadata: Metadata = {
   title: "BookWise",
   description: "BookWise is a library management system that helps you manage your books and borrow them from others.",
-};
+}
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}>{children}</body>
+      <body className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}>
+        {children}
+        <Toaster />
+      </body>
     </html>
-  );
-};
+  )
+}
 
-export default RootLayout;
+export default RootLayout

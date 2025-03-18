@@ -301,11 +301,11 @@
 
   /* File Upload */
   .upload-btn {
-    @apply flex min-h-14 w-full items-center justify-center gap-1.5 rounded-md;
+    @apply flex bg-dark-300 min-h-14 w-full items-center cursor-pointer justify-center gap-1.5 rounded-md;
   }
 
   .upload-filename {
-    @apply mt-1 text-center text-xs;
+    @apply mt-1  text-center text-xs;
   }
 
   .progress {
