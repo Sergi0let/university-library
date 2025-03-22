@@ -7,7 +7,8 @@ const config = {
 			privateKey: process.env.IMAGE_PRIVATE_KEY!
 		},
 		databaseUrl: process.env.DATABASE_URL!,
+
 	}
 }
 
-export default config;
+export default config
