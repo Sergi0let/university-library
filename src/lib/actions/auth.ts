@@ -7,7 +7,9 @@ import { redirect } from 'next/navigation'
 import { db } from '../../../database/drizzle'
 import { users } from '../../../database/schema'
 import { signIn } from '../auth'
+import config from '../config'
 import ratelimit from '../ratelimit'
+import { workflowClient } from '../workflows'
 
 export const signInWithCredentials = async (params: Pick<AuthCredentials, 'email' | 'password'>) => {
   const { email, password } = params
@@ -47,6 +49,11 @@ export const signUp = async (params: AuthCredentials) => {
 
   try {
     await db.insert(users).values({ email, fullName, password: hashPassword, universityCard, universityId })
+
+    await workflowClient.trigger({
+      url: `${config.env.prodApiEndpoint}/api/workflows/onbording`,
+      body: { email, fullName }
+    })
 
     return { success: true }
   } catch (error) {
