@@ -54,6 +54,7 @@ export const signUp = async (params: AuthCredentials) => {
       url: `${config.env.prodApiEndpoint}/api/workflows/onbording`,
       body: { email, fullName }
     })
+    await signInWithCredentials({ email, password })
 
     return { success: true }
   } catch (error) {

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Page = () => {
   return (
     <main className="bg-pattern root-container flex min-h-screen flex-col items-center justify-center">
@@ -6,6 +8,9 @@ const Page = () => {
         Looks like you&apos;ve been a little too eager. We&apos;ve put a temporar pause on your excitement. 🚦 Chill for
         a bit, and try again shortly
       </p>
+      <Link className="form-btn mt-7 max-w-36" href="/">
+        Go home
+      </Link>
     </main>
   );
 };

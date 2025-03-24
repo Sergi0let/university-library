@@ -207,11 +207,11 @@
 
 @layer components {
   .form-btn {
-    @apply bg-primary cursor-pointer disabled:cursor-not-allowed text-dark-100 hover:bg-primary inline-flex min-h-14 w-full items-center justify-center rounded-md px-6 py-2 text-base font-bold;
+    @apply bg-primary text-dark-100 hover:bg-secondary inline-flex min-h-14 w-full cursor-pointer items-center justify-center rounded-md px-6 py-2 text-base font-bold transition-colors disabled:cursor-not-allowed;
   }
 
   .form-input {
-    @apply placeholder:text-light-100 !bg-dark-300  min-h-14 w-full border-none text-base font-bold text-white placeholder:font-normal focus-visible:shadow-none focus-visible:ring-0;
+    @apply placeholder:text-light-100 !bg-dark-300 min-h-14 w-full border-none text-base font-bold text-white placeholder:font-normal focus-visible:shadow-none focus-visible:ring-0;
   }
 
   /* Book Card */
@@ -301,11 +301,11 @@
 
   /* File Upload */
   .upload-btn {
-    @apply flex bg-dark-300 min-h-14 w-full items-center cursor-pointer justify-center gap-1.5 rounded-md;
+    @apply bg-dark-300 flex min-h-14 w-full cursor-pointer items-center justify-center gap-1.5 rounded-md;
   }
 
   .upload-filename {
-    @apply mt-1  text-center text-xs;
+    @apply mt-1 text-center text-xs;
   }
 
   .progress {
