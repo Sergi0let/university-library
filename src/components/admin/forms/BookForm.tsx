@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import ColorPicker from "../ColorPIcker";
 
 interface Props extends Partial<Book> {
   type?: "create" | "update";
@@ -34,7 +35,9 @@ const BookForm = ({ type, ...book }: Props) => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof bookSchema>) => {};
+  const onSubmit = async (values: z.infer<typeof bookSchema>) => {
+    console.log("label:", values);
+  };
 
   return (
     <Form {...form}>
@@ -146,7 +149,9 @@ const BookForm = ({ type, ...book }: Props) => {
           render={({ field }) => (
             <FormItem className="flex flex-col gap-1">
               <FormLabel className="text-dark-500 text-base font-normal">Primary Color</FormLabel>
-              <FormControl>{/* Color picket */}</FormControl>
+              <FormControl>
+                <ColorPicker onPickerChange={field.onChange} value={field.value} />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
@@ -178,6 +183,7 @@ const BookForm = ({ type, ...book }: Props) => {
                   folder="books/videos"
                   variant="light"
                   onFileChange={field.onChange}
+                  value={field.value}
                 />
               </FormControl>
               <FormMessage />
