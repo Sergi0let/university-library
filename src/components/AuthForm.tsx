@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { DefaultValues, FieldValues, Path, SubmitHandler, useForm, UseFormReturn } from "react-hook-form";
 import { toast } from "sonner";
 import { ZodType } from "zod";
-import ImageUpload from "./ImageUpload";
+import FileUpload from "./FileUpload";
 
 interface Props<T extends FieldValues> {
   schema: ZodType<T>;
@@ -68,7 +68,14 @@ const AuthForm = <T extends FieldValues>({ type, schema, defaultValues, onSubmit
 
                   <FormControl>
                     {field.name === "universityCard" && !isSignIn ? (
-                      <ImageUpload onFileChange={field.onChange} />
+                      <FileUpload
+                        accept="image/*"
+                        type="image"
+                        placeholder="Upload your ID"
+                        folder="ids"
+                        variant="dark"
+                        onFileChange={field.onChange}
+                      />
                     ) : (
                       <Input
                         required

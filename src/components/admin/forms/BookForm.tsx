@@ -1,5 +1,6 @@
 "use client";
 
+import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -125,7 +126,16 @@ const BookForm = ({ type, ...book }: Props) => {
           render={({ field }) => (
             <FormItem className="flex flex-col gap-1">
               <FormLabel className="text-dark-500 text-base font-normal">Book Image</FormLabel>
-              <FormControl>{/* File upload */}</FormControl>
+              <FormControl>
+                <FileUpload
+                  accept="image/*"
+                  type="image"
+                  placeholder="Upload a book cover"
+                  folder="books/covers"
+                  variant="light"
+                  onFileChange={field.onChange}
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
@@ -160,7 +170,16 @@ const BookForm = ({ type, ...book }: Props) => {
           render={({ field }) => (
             <FormItem className="flex flex-col gap-1">
               <FormLabel className="text-dark-500 text-base font-normal">Book Trailer</FormLabel>
-              <FormControl>{/* Video */}</FormControl>
+              <FormControl>
+                <FileUpload
+                  accept="video/*"
+                  type="video"
+                  placeholder="Upload a video trailer"
+                  folder="books/videos"
+                  variant="light"
+                  onFileChange={field.onChange}
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
