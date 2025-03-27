@@ -180,7 +180,7 @@
   }
 
   .back-btn {
-    @apply border-light-300 text-dark-200 hover:bg-light-300 mb-10 w-fit border bg-white text-xs font-medium;
+    @apply border-light-300 text-dark-200 hover:bg-light-300 mb-10 w-fit cursor-pointer border bg-white text-xs font-medium;
   }
 
   /* Confirmation Dialog */
@@ -209,7 +209,7 @@
   }
 
   .confirm-btn {
-    @apply text-light-800 min-h-14 w-full rounded-xl text-base font-bold;
+    @apply text-light-800 min-h-14 w-full cursor-pointer rounded-xl text-base font-bold;
   }
 
   /* Book Form */
@@ -218,12 +218,12 @@
   }
 
   .book-form_btn {
-    @apply bg-primary-admin hover:bg-primary-admin/95 min-h-14 w-full;
+    @apply bg-primary-admin hover:bg-primary-admin/95 min-h-14 w-full cursor-pointer;
   }
 
   /* Home Page */
   .view-btn {
-    @apply bg-light-300 text-primary-admin hover:bg-light-300/80 rounded-md font-semibold shadow-none;
+    @apply bg-light-300 text-primary-admin hover:bg-light-300/80 cursor-pointer rounded-md font-semibold shadow-none;
   }
 
   .add-new-book_btn {

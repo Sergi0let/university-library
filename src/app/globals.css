@@ -296,7 +296,7 @@
   }
 
   .book-overview_btn {
-    @apply bg-primary text-dark-100 hover:bg-primary/90 mt-4 min-h-14 w-fit max-md:w-full;
+    @apply bg-primary text-dark-100 hover:bg-primary/90 mt-4 min-h-14 w-fit cursor-pointer max-md:w-full;
   }
 
   /* File Upload */
@@ -323,7 +323,7 @@
 
   /* Book Receipt */
   .book-receipt_admin-btn {
-    @apply bg-light-300 text-primary-admin hover:bg-light-300/80 rounded-md font-semibold;
+    @apply bg-light-300 text-primary-admin hover:bg-light-300/80 cursor-pointer rounded-md font-semibold;
   }
 
   /* Book Ticket */
@@ -369,7 +369,7 @@
   }
 
   .not-found-btn {
-    @apply bg-primary font-bebas-neue text-dark-100 hover:bg-primary/90 mt-6 min-h-12 min-w-[360px] text-xl;
+    @apply bg-primary font-bebas-neue text-dark-100 hover:bg-primary/90 mt-6 min-h-12 min-w-[360px] cursor-pointer text-xl;
   }
 
   /* Pagination */
@@ -378,11 +378,11 @@
   }
 
   .pagination-btn_light {
-    @apply bg-light-300 text-dark-300 hover:bg-light-300/70;
+    @apply bg-light-300 text-dark-300 hover:bg-light-300/70 cursor-pointer;
   }
 
   .pagination-btn_dark {
-    @apply bg-dark-300 hover:bg-dark-100;
+    @apply bg-dark-300 hover:bg-dark-100 cursor-pointer;
   }
 
   #pagination p {

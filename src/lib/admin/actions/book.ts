@@ -12,7 +12,6 @@ export const createBooks = async (params: BookParams) => {
       ...params,
       availableCopies: params.totalCopies,
     }).returning()
-    console.log(newBook)
     return {
       success: true,
       data: newBook[0]

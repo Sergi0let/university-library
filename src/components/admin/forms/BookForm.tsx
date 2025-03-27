@@ -14,11 +14,11 @@ import { toast } from "sonner";
 import { z } from "zod";
 import ColorPicker from "../ColorPIcker";
 
-interface Props extends Partial<Book> {
-  type?: "create" | "update";
-}
+// interface Props extends Partial<Book> {
+//   type?: "create" | "update";
+// }
 
-const BookForm = ({ type, ...book }: Props) => {
+const BookForm = () => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof bookSchema>>({

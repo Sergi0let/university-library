@@ -1,20 +1,18 @@
-import BookOverview from "@/components/BookOverview"
-import BookVideo from "@/components/BookVideo"
-import { auth } from "@/lib/auth"
-import { eq } from "drizzle-orm"
-import { redirect } from "next/navigation"
-import { db } from "../../../../../database/drizzle"
-import { books } from "../../../../../database/schema"
+import BookOverview from "@/components/BookOverview";
+import BookVideo from "@/components/BookVideo";
+import { auth } from "@/lib/auth";
+import { eq } from "drizzle-orm";
+import { redirect } from "next/navigation";
+import { db } from "../../../../../database/drizzle";
+import { books } from "../../../../../database/schema";
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
   const session = await auth();
 
   const [bookDetails] = await db.select().from(books).where(eq(books.id, id)).limit(1);
-  console.log("ddf  :", bookDetails);
-  if (!bookDetails) redirect("/404");
 
-  console.log("Page Book Details:", bookDetails);
+  if (!bookDetails) redirect("/404");
 
   return (
     <>
