@@ -7,13 +7,14 @@ interface Props {
 }
 
 const BookList = ({ title, books, containerClassName }: Props) => {
+  if (books.length < 2) return;
   return (
     <section className={containerClassName}>
       <h2 className="font-bebas-neue text-light-100 text-4xl">{title}</h2>
 
       <ul className="book-list">
-        {books.map((book) => (
-          <BookCard key={book.title} {...book} />
+        {books.map((book, i) => (
+          <BookCard key={book.title + i} {...book} />
         ))}
       </ul>
     </section>

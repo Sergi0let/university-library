@@ -1,5 +1,8 @@
+"use client";
+
+import config from "@/lib/config";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { IKImage } from "imagekitio-next";
 import BookCoverSvg from "./BookCoverSvg";
 
 type BookCoverVariant = "extraSmall" | "small" | "medium" | "regular" | "wide";
@@ -19,17 +22,22 @@ interface Props {
   coverImage: string;
 }
 
-const BookCover = ({
-  className,
-  variant = "regular",
-  color = "#012B48",
-  coverImage = "https://placehold.co/400x600.png",
-}: Props) => {
+const BookCover = ({ className, variant = "regular", color = "#012B48", coverImage }: Props) => {
+  console.log("label:", coverImage);
   return (
     <div className={cn("relative transition-all duration-300 ease-in-out", variantStyles[variant], className)}>
       <BookCoverSvg coverColor={color} />
       <div className="absolute z-10" style={{ left: "12%", width: "87.5%", height: "88%" }}>
-        <Image src={coverImage} alt="Book Cover" fill className="rounded-sm object-fill" />
+        <IKImage
+          // src={coverImage ? `${config.env.imagekit.urlEndpoint}/${coverImage}` : "https://placehold.co/400x600.png"}
+          path={coverImage}
+          urlEndpoint={config.env.imagekit.urlEndpoint}
+          alt="Book Cover"
+          fill
+          className="rounded-sm object-fill"
+          loading="lazy"
+          lqip={{ active: true }}
+        />
       </div>
     </div>
   );
