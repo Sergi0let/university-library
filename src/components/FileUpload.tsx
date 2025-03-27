@@ -155,9 +155,9 @@ const FileUpload = ({ accept, folder, placeholder, type, variant, value, onFileC
         </div>
       )}
 
-      {file && type === "image" ? (
+      {file.filePath && type === "image" ? (
         <IKImage alt={file.filePath || ""} path={file.filePath || ""} width={500} height={300} />
-      ) : type === "video" ? (
+      ) : file.filePath && type === "video" ? (
         <IKVideo path={file?.filePath || ""} className="h-96 w-full rounded-xl" controls={true} />
       ) : null}
     </ImageKitProvider>

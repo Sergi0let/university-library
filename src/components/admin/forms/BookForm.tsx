@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { createBooks } from "@/lib/admin/actions/book";
 import { bookSchema } from "@/lib/validations";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 import ColorPicker from "../ColorPIcker";
 
@@ -36,7 +38,19 @@ const BookForm = ({ type, ...book }: Props) => {
   });
 
   const onSubmit = async (values: z.infer<typeof bookSchema>) => {
-    console.log("label:", values);
+    const result = await createBooks(values);
+
+    if (result) {
+      toast.success("Success", {
+        description: "Book created successfully",
+      });
+
+      router.push(`/admin/books/${(result as { data: { id: string } }).data.id}`);
+    } else {
+      toast.error("Error", {
+        description: "An error occurred",
+      });
+    }
   };
 
   return (
@@ -204,7 +218,7 @@ const BookForm = ({ type, ...book }: Props) => {
           )}
         />
 
-        <Button className="book-form_btn text-white" type="submit">
+        <Button className="book-form_btn cursor-pointer text-white" type="submit">
           Add Book to Library
         </Button>
       </form>
