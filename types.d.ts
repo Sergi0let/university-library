@@ -9,9 +9,10 @@ interface Book {
   description: string
   coverColor: string
   coverUrl: string
-  videoUrl: string
+  videoUrl: string | null
   summary: string
   isLoanedBook?: boolean
+  createdAt: Date | null
 }
 
 interface AuthCredentials {

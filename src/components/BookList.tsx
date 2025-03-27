@@ -7,7 +7,8 @@ interface Props {
 }
 
 const BookList = ({ title, books, containerClassName }: Props) => {
-  if (books.length < 2) return;
+  if (books.length < 1) return;
+
   return (
     <section className={containerClassName}>
       <h2 className="font-bebas-neue text-light-100 text-4xl">{title}</h2>
